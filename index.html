@@ -1,0 +1,394 @@
+<title>Portfólio Pedro Hugo Simões</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Conceito: página única de leitura rápida, ancorada no Recife Antigo; acento azul-ponte, linhas finas e rótulos em mono como numa planta técnica. */
+:root{
+  --bg:#f5f7fc; --surface:#ffffff; --fg:#121a2e; --muted:#55607a; --line:#d9e0f0;
+  --accent:#1f4fd8; --accent-soft:#e3eafc; --accent-fg:#ffffff; --ok:#1b7f5c;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0d1220; --surface:#151c30; --fg:#e8edf8; --muted:#9aa5bf; --line:#27314c;
+  --accent:#86a2ff; --accent-soft:#1c2850; --accent-fg:#0d1220; --ok:#56c79d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1220; --surface:#151c30; --fg:#e8edf8; --muted:#9aa5bf; --line:#27314c;
+  --accent:#86a2ff; --accent-soft:#1c2850; --accent-fg:#0d1220; --ok:#56c79d; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.55;
+  padding-block:0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1040px;margin-inline:auto}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.1;margin:0}
+.mono{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+/* topo */
+nav{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:center;justify-content:space-between;padding-block:18px;border-bottom:1px solid var(--line)}
+nav .brand{font-family:var(--display);font-weight:800;text-decoration:none;color:var(--fg)}
+nav ul{display:flex;flex-wrap:wrap;gap:4px 18px;list-style:none;margin:0;padding:0}
+nav ul a{color:var(--muted);text-decoration:none;font-size:.95rem}
+nav ul a:hover{color:var(--accent)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr auto;gap:32px 48px;align-items:center;padding-block:56px 40px}
+.hero>*{min-width:0}
+.hero h1{font-size:clamp(2.2rem,5.6vw,4rem);font-weight:800;letter-spacing:-.02em;max-width:16ch}
+.hero .lead{max-width:56ch;font-size:1.12rem;color:var(--muted);margin:20px 0 0}
+.hero .role{margin-top:18px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--fg);text-decoration:none;font:600 .95rem var(--body);cursor:pointer}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.btn.primary:hover{color:var(--accent-fg);filter:brightness(1.08)}
+.portrait{width:200px}
+.portrait img{display:block;width:200px;height:200px;object-fit:cover;border-radius:50%;border:2px solid var(--accent)}
+.portrait .mono{margin-top:12px;text-align:center}
+
+/* números */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-block:1px solid var(--line)}
+.facts div{padding:18px 16px 18px 0}
+.facts b{display:block;font:800 1.7rem/1 var(--display);color:var(--accent);font-variant-numeric:tabular-nums}
+.facts span{display:block;margin-top:6px;font-size:.88rem;color:var(--muted)}
+
+section{padding-block:64px 0}
+.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;margin-bottom:26px}
+.sec-head h2{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:700;letter-spacing:-.01em}
+.sec-head p{margin:0;color:var(--muted);max-width:46ch}
+
+/* filtros */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.filters button{font:500 .78rem var(--mono);letter-spacing:.04em;text-transform:uppercase;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.filters button:hover{border-color:var(--accent);color:var(--accent)}
+.filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+
+/* projetos */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,310px),1fr));gap:18px}
+.card{display:flex;flex-direction:column;gap:12px;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
+.card .top{display:flex;justify-content:space-between;gap:12px}
+.card h3{font-size:1.25rem;font-weight:700}
+.card p{margin:0;font-size:.97rem}
+.card .kpi{font:700 1.05rem var(--display);color:var(--accent);font-variant-numeric:tabular-nums}
+.card .status{color:var(--ok)}
+.card .open{align-self:flex-start;font:600 .9rem var(--body);color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)}
+.card .open:hover{filter:brightness(1.15)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:auto 0 0;padding:14px 0 0}
+.chips li{font:400 .74rem var(--mono);padding:3px 8px;border-radius:4px;background:var(--accent-soft);color:var(--accent)}
+.chips li.note{background:transparent;border:1px dashed var(--accent)}
+
+/* ferramentas */
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 36px}
+.tools div{padding-block:18px;border-top:1px solid var(--line)}
+.tools h3{font-size:1.02rem;font-weight:700;margin-bottom:10px}
+.tools .chips{padding:0;margin:0}
+
+/* trajetória */
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{display:grid;grid-template-columns:150px 1fr;gap:6px 24px;padding-block:18px;border-top:1px solid var(--line)}
+.timeline li>*{min-width:0}
+.timeline h3{font-size:1.1rem;font-weight:700}
+.timeline .org{color:var(--muted);font-size:.95rem}
+.timeline p{margin:6px 0 0;font-size:.97rem}
+
+/* publicações e formação */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:36px}
+.cols>div{min-width:0}
+.cols h3{font-size:1.1rem;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.cols ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.cols li{font-size:.97rem}
+.cols li small{display:block;color:var(--muted);font-size:.86rem}
+
+/* contato */
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px 36px;padding-block:28px;border-block:1px solid var(--line)}
+.contact dt{margin-bottom:2px}
+.contact dd{margin:0;overflow-wrap:anywhere}
+.contact dd a{color:var(--fg)}
+footer{padding-block:32px 40px;color:var(--muted);font-size:.88rem}
+
+@media (max-width:720px){
+  .hero{grid-template-columns:1fr;padding-block:36px 28px}
+  .portrait{order:-1;width:120px}.portrait img{width:120px;height:120px}.portrait .mono{display:none}
+  .timeline li{grid-template-columns:1fr}
+  section{padding-block:48px 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+
+<div class="wrap">
+<nav aria-label="Seções">
+  <a class="brand" href="#topo">Pedro Hugo Simões</a>
+  <ul>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#ferramentas">Ferramentas</a></li>
+    <li><a href="#trajetoria">Trajetória</a></li>
+    <li><a href="#publicacoes">Publicações</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="topo">
+  <div>
+    <p class="mono role">Analista de Dados · Coordenador do Observatório de Turismo do Recife</p>
+    <h1>Construo soluções com IA, automação e dados.</h1>
+    <p class="lead">Desenvolvo sistemas, automações, pipelines e dashboards que funcionam no dia a dia da Prefeitura do Recife, e pesquiso IA generativa com agentes e RAG na UFPE. Cursando Gestão da Informação, com formatura prevista para abril de 2028.</p>
+    <div class="actions">
+      <a class="btn primary" href="#projetos">Ver projetos</a>
+      <a class="btn" href="https://github.com/Phasss" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://linkedin.com/in/pedro-hugo-simoes" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="portrait">
+    <img src="data:image/jpeg;base64,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" alt="Retrato de Pedro Hugo Simões" width="200" height="200">
+    <p class="mono">8°03′S 34°53′O · Recife</p>
+  </div>
+</header>
+
+<div class="facts" aria-label="Resultados em números">
+  <div><b>3.228</b><span>passageiros no sistema de agendamentos do Giro Recife</span></div>
+  <div><b>96,71</b><span>NPS do Giro Recife</span></div>
+  <div><b>+3.500</b><span>respondentes em pesquisas de perfil do visitante</span></div>
+  <div><b>~5</b><span>fontes de dados integradas: de dias para poucas horas</span></div>
+  <div><b>6.084</b><span>documentos científicos revisados</span></div>
+</div>
+
+<section id="projetos">
+  <div class="sec-head">
+    <h2>Projetos</h2>
+    <p>Sistemas e automações em uso real, projetos de IA e pesquisas aplicadas.</p>
+  </div>
+  <div class="filters" role="group" aria-label="Filtrar projetos por área">
+    <button type="button" data-f="todos" aria-pressed="true">Todos</button>
+    <button type="button" data-f="ia" aria-pressed="false">IA</button>
+    <button type="button" data-f="automacao" aria-pressed="false">Automação</button>
+    <button type="button" data-f="sistemas" aria-pressed="false">Sistemas</button>
+    <button type="button" data-f="dados" aria-pressed="false">Dados</button>
+    <button type="button" data-f="pesquisa" aria-pressed="false">Pesquisa</button>
+  </div>
+
+  <div class="grid" id="grid">
+    <article class="card" data-cat="sistemas automacao">
+      <div class="top"><span class="mono">Sistemas · 2025–hoje</span></div>
+      <h3>Agendamentos do Giro Recife</h3>
+      <p class="kpi">3.228 passageiros · NPS 96,71</p>
+      <p>Sistema de agendamentos do city tour Giro Recife, desenvolvido com regras de negócio e otimização logística. Eliminou o overbooking do processo manual e criou um ambiente de dados para acompanhamento e decisão do projeto.</p>
+      <ul class="chips"><li>Regras de negócio</li><li>Otimização logística</li><li>Ambiente de dados</li></ul>
+    </article>
+
+    <article class="card" data-cat="sistemas automacao">
+      <div class="top"><span class="mono">Sistemas · 2025–hoje</span></div>
+      <h3>Sistema de chamados da SETURL</h3>
+      <p>Ferramenta interna de gestão de chamados da equipe, publicada como aplicação web em Google Apps Script, sem backend dedicado. Resolvi a serialização de datas entre cliente e servidor, a concorrência de requisições e a configuração de deploy. Desenvolvido com apoio do Claude.</p>
+      <ul class="chips"><li>Google Apps Script</li><li>Web App</li><li>LockService</li><li>Claude</li></ul>
+    </article>
+
+    <article class="card" data-cat="ia pesquisa">
+      <div class="top"><span class="mono">IA · 2026–hoje</span></div>
+      <h3>Sistema multiagente com RAG</h3>
+      <p>Mapeamento comparativo de regulamentações sobre Práticas Integrativas e Complementares em Saúde, com orquestração de agentes de IA, LLMs, uso do Claude e processamento de linguagem natural. Iniciação científica na UFPE.</p>
+      <ul class="chips"><li>RAG</li><li>Multiagente</li><li>LLMs</li><li>NLP</li><li>Claude</li></ul>
+    </article>
+
+    <article class="card" data-cat="ia">
+      <div class="top"><span class="mono">IA · 2026</span></div>
+      <h3>Manus Day Recife</h3>
+      <p class="kpi">1º lugar</p>
+      <p>Hackathon de IA aplicada a negócios promovido pela Manus AI. Projeto vencedor voltado à sustentabilidade e ao fortalecimento do comércio local.</p>
+      <ul class="chips"><li>IA aplicada a negócios</li><li>Manus AI</li><li>Sustentabilidade</li></ul>
+    </article>
+
+    <article class="card" data-cat="automacao">
+      <div class="top"><span class="mono">Automação · 2025–hoje</span></div>
+      <h3>Extração de metadados EXIF</h3>
+      <p>Automação em Python que extrai os metadados EXIF de fotografias. Acelerou a validação de fotos em prestações de contas e apoia as rotinas de auditoria interna.</p>
+      <ul class="chips"><li>Python</li><li>EXIF</li><li>Auditoria</li></ul>
+    </article>
+
+    <article class="card" data-cat="dados automacao">
+      <div class="top"><span class="mono">Dados · 2025–hoje</span></div>
+      <h3>Pipelines de ETL e dashboards</h3>
+      <p class="kpi">De dias para poucas horas</p>
+      <p>Pipelines que integram cerca de 5 fontes (AENA, ABIH, SIROS/ANAC, SDEC e CAGED) e alimentam 5 dashboards interativos em Power BI e Looker Studio, usados semanalmente pela equipe. Inclui dashboards de uma base de monitoramento do Plano Municipal pela Primeira Infância, com diagnóstico de erros estruturais na base.</p>
+      <ul class="chips"><li>ETL</li><li>Python</li><li>SQL</li><li>Power BI</li><li>DAX</li><li>Looker Studio</li></ul>
+    </article>
+
+    <article class="card" data-cat="dados">
+      <div class="top"><span class="mono">Dados · 2025–2026</span></div>
+      <h3>Pesquisas de perfil do visitante</h3>
+      <p class="kpi">+3.500 respondentes</p>
+      <p>Pesquisas no Réveillon 2025/2026 e no Carnaval 2026. No Totem Carnaval: 1.053 respostas, alcance estimado de 2.458 pessoas e satisfação média de 9,94/10. Também estruturei a pesquisa de satisfação do programa Olha! Recife, com lógica de ramificação para cinco perfis de respondente, e um pipeline em Python e Streamlit para processá-la.</p>
+      <ul class="chips"><li>Google Forms</li><li>Apps Script</li><li>Python</li><li>Streamlit</li></ul>
+    </article>
+
+    <article class="card" data-cat="ia sistemas">
+      <div class="top"><span class="mono">IA e sistemas · <span class="status">em desenvolvimento</span></span></div>
+      <h3>CAT Virtual</h3>
+      <p>Centro de Atendimento ao Turista virtual, em formato de totem touchscreen vertical de 60 polegadas, com lançamento previsto no Rec'n'Play (novembro de 2026).</p>
+      <p>Inclui um chatbot que aplica conceitos de RAG para responder perguntas sobre o destino, guiadas ou livres, e uma ferramenta de criação de roteiros integrada a uma aplicação web: o roteiro predefinido ou montado pelo próprio usuário pode ser acessado depois no celular dele. O totem traz ainda o mapa do Recife Antigo, um modo de desafio 1 contra 1 e estatísticas de uso para a equipe do evento.</p>
+      <p>Levantamento de requisitos documentado: 34 de 44 requisitos concluídos (77%) na versão 1.0, de setembro de 2026.</p>
+      <ul class="chips"><li>Chatbot</li><li>RAG</li><li>Criação de roteiros</li><li>Aplicação web</li><li>Totem interativo</li><li>Requisitos</li></ul>
+    </article>
+
+    <article class="card" data-cat="sistemas">
+      <div class="top"><span class="mono">Sistemas · Secretaria de Turismo e Lazer</span></div>
+      <h3>CineMapa do Recife Antigo</h3>
+      <p>Mapa interativo das locações de filmagem no Recife, do centro histórico à zona sul. Cada filme tem sinopse, ficha técnica, trecho em vídeo e rota a pé até o local. A busca é por filme, a lista pode ser ordenada por nome ou localidade e a visualização alterna entre mapa e lista. Funciona bem no celular.</p>
+      <p>Desenvolvido para a Secretaria de Turismo e Lazer do Recife, que vai utilizá-lo.</p>
+      <ul class="chips"><li>Mapa interativo</li><li>Rotas a pé</li><li>Responsivo</li><li>GitHub Pages</li></ul>
+      <a class="open" href="https://phasss.github.io/CineMapa---Rec-n-play/" target="_blank" rel="noopener">Abrir o CineMapa ↗</a>
+    </article>
+
+    <article class="card" data-cat="sistemas">
+      <div class="top"><span class="mono">Sistemas · projeto próprio</span></div>
+      <h3>RevisaAI</h3>
+      <p>Plataforma web de revisão gamificada para o ensino médio, alinhada ao SSA da UPE e ao ENEM. O aluno revisa em cerca de cinco minutos por dia, com trilhas por etapa, questões comentadas, revisão espaçada, simulados cronometrados e duelos ao vivo, além de XP, ligas e conquistas.</p>
+      <p>Professores e coordenação acompanham um mapa de dificuldades da turma, alertas de alunos em risco e montagem rápida de tarefas. Piloto gratuito aberto a escolas de Recife.</p>
+      <ul class="chips"><li>Gamificação</li><li>Revisão espaçada</li><li>Painel do professor</li><li>Web app</li><li>Lovable</li></ul>
+      <a class="open" href="https://revisa-home-hub.lovable.app/" target="_blank" rel="noopener">Abrir o RevisaAI ↗</a>
+    </article>
+
+    <article class="card" data-cat="dados pesquisa">
+      <div class="top"><span class="mono">Dados · <span class="status">em andamento</span></span></div>
+      <h3>IDT-Recife</h3>
+      <p>Índice de Desenvolvimento Turístico do Recife: indicador sintético construído a partir de 4 séries temporais mensais (faturamento turístico, arrecadação de ISS, movimentação aeroportuária e ocupação hoteleira), de jan/2019 a mai/2026 (89 observações), validado com a diária média hoteleira.</p>
+      <ul class="chips"><li>Séries temporais</li><li>STL</li><li>PCA</li></ul>
+    </article>
+
+    <article class="card" data-cat="dados pesquisa">
+      <div class="top"><span class="mono">Dados · acadêmico</span></div>
+      <h3>Pipeline de arboviroses</h3>
+      <p>Dados de dengue, zika e chikungunya em 5 temporadas e nos 94 bairros oficiais do Recife, com normalização fuzzy de nomes para garantir consistência e dashboard em Streamlit.</p>
+      <ul class="chips"><li>Python</li><li>Streamlit</li><li>Fuzzy matching</li></ul>
+    </article>
+
+    <article class="card" data-cat="pesquisa dados">
+      <div class="top"><span class="mono">Pesquisa · 2025–2026</span></div>
+      <h3>Risco de incidentes com tubarões</h3>
+      <p class="kpi">6.084 documentos revisados</p>
+      <p>Bolsa de Fomento à Inovação (FACEPE): revisão sistemática com Bibliometrix em R, modelagem de risco por praia com AHP e MCDA e análise de dados históricos de incidentes (CEMIT). A pesquisa gerou publicações no Latinoware 2025 e no SBGames 2026, incluindo o jogo sério EITA!.</p>
+      <ul class="chips"><li>R</li><li>Bibliometrix</li><li>AHP</li><li>MCDA</li></ul>
+    </article>
+  </div>
+</section>
+
+<section id="ferramentas">
+  <div class="sec-head">
+    <h2>Ferramentas</h2>
+    <p>O que uso para construir, automatizar e analisar.</p>
+  </div>
+  <div class="tools">
+    <div><h3>IA e agentes</h3><ul class="chips"><li>Claude</li><li>IA generativa</li><li>LLMs</li><li>RAG</li><li>Sistemas multiagente</li><li>NLP</li><li class="note">n8n · curso na Udemy</li></ul></div>
+    <div><h3>Automação e aplicações</h3><ul class="chips"><li>Python</li><li>Google Apps Script</li><li>Streamlit</li><li>Web scraping</li><li>Google Forms</li><li>Lovable</li><li>GitHub Pages</li><li>Node.js (relatórios .docx)</li></ul></div>
+    <div><h3>Dados e BI</h3><ul class="chips"><li>SQL</li><li>ETL</li><li>Power BI</li><li>DAX</li><li>Power Query</li><li>Looker Studio</li><li>Modelagem de dados</li><li>KPIs</li></ul></div>
+    <div><h3>Linguagens</h3><ul class="chips"><li>Python</li><li>SQL</li><li>R</li><li>Java</li></ul></div>
+    <div><h3>Estatística e pesquisa</h3><ul class="chips"><li>Análise exploratória</li><li>Séries temporais (STL)</li><li>PCA</li><li>AHP/MCDA</li><li>Bibliometria</li></ul></div>
+    <div><h3>Processos e cloud</h3><ul class="chips"><li>BPMN</li><li>Mapeamento de processos</li><li>Scrum</li><li>Gestão de chamados</li><li>Noções de ITIL</li><li>Noções de AWS</li></ul></div>
+  </div>
+</section>
+
+<section id="trajetoria">
+  <div class="sec-head"><h2>Trajetória</h2></div>
+  <ol class="timeline">
+    <li>
+      <span class="mono">11/2025 – hoje</span>
+      <div><h3>Analista de Dados e Coordenador do Observatório de Turismo do Recife</h3>
+      <div class="org">Prefeitura do Recife · Secretaria de Turismo e Lazer (SETURL)</div>
+      <p>Sistemas, automações, pipelines, dashboards e pesquisas. Mapeei mais de 20 processos da Secretaria e atuei em projetos como Made in Recife e Copa Feminina de Futebol FIFA 2027.</p></div>
+    </li>
+    <li>
+      <span class="mono">08/2026 – hoje</span>
+      <div><h3>Bolsista de Iniciação Científica em IA Generativa</h3>
+      <div class="org">Universidade Federal de Pernambuco (UFPE)</div>
+      <p>Sistema multiagente com RAG para mapeamento comparativo de regulamentações em saúde.</p></div>
+    </li>
+    <li>
+      <span class="mono">05/2025 – 06/2026</span>
+      <div><h3>Bolsista de Fomento à Inovação (BFI)</h3>
+      <div class="org">FACEPE</div>
+      <p>Revisão sistemática, modelagem de risco com AHP/MCDA e análise de incidentes na orla da Região Metropolitana do Recife.</p></div>
+    </li>
+    <li>
+      <span class="mono">02/2025 – 11/2025</span>
+      <div><h3>Estagiário de TI</h3>
+      <div class="org">Porto do Recife S.A.</div>
+      <p>Suporte de hardware e software, relatórios técnicos de infraestrutura e documentação de serviços de rede (DHCP, DNS e Active Directory).</p></div>
+    </li>
+    <li>
+      <span class="mono">05/2025 – 08/2025</span>
+      <div><h3>Monitor em Usabilidade e Arquitetura da Informação</h3>
+      <div class="org">UFPE</div>
+      <p>Mentoria de alunos, validação de MVP, heurísticas de Nielsen e testes de usabilidade.</p></div>
+    </li>
+  </ol>
+</section>
+
+<section id="publicacoes">
+  <div class="sec-head"><h2>Publicações, prêmio e formação</h2></div>
+  <div class="cols">
+    <div>
+      <h3>Publicações</h3>
+      <ul>
+        <li>EITA!: prevenção na palma da mão por meio de um jogo sério sobre incidentes com tubarões<small>SBGames 2026, Goiânia (coautor)</small></li>
+        <li>EITA!: criação e avaliação da estética de um jogo mobile para mitigação de riscos com tubarões<small>SBGames 2026, Goiânia (coautor)</small></li>
+        <li>Soluções inovadoras para práticas turísticas sustentáveis com educação ambiental e incidentes com tubarões<small>Latinoware 2025, Anais do XXII Latinoware, v. 1, p. 948 (coautor)</small></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Prêmio e formação</h3>
+      <ul>
+        <li>1º lugar, Manus Day Recife 2026<small>Hackathon de IA aplicada a negócios</small></li>
+        <li>Bacharelado em Gestão da Informação<small>UFPE, 04/2023 – 04/2028</small></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Certificados</h3>
+      <ul>
+        <li>n8n: automação de fluxos de trabalho<small>Udemy</small></li>
+        <li>AWS Cloud Practitioner Essentials<small>AWS Training &amp; Certification</small></li>
+        <li>Fundamentos do Scrum<small>Udemy</small></li>
+        <li>Data Manipulation in SQL<small>DataCamp</small></li>
+        <li>Java Orientado a Objetos<small>Udemy</small></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="sec-head">
+    <h2>Contato</h2>
+    <p>Disponível para estágio, 30 horas semanais, em formato remoto.</p>
+  </div>
+  <dl class="contact">
+    <div><dt class="mono">E-mail</dt><dd><span id="mail">phsimoes21@gmail.com</span> <button class="btn" type="button" id="copy" style="margin-left:8px;padding:4px 10px">Copiar</button></dd></div>
+    <div><dt class="mono">LinkedIn</dt><dd><a href="https://linkedin.com/in/pedro-hugo-simoes" target="_blank" rel="noopener">linkedin.com/in/pedro-hugo-simoes</a></dd></div>
+    <div><dt class="mono">GitHub</dt><dd><a href="https://github.com/Phasss" target="_blank" rel="noopener">github.com/Phasss</a></dd></div>
+    <div><dt class="mono">Localização</dt><dd>Recife, Pernambuco, Brasil</dd></div>
+  </dl>
+  <footer>Pedro Hugo Simões · Portfólio · 2026</footer>
+</section>
+</div>
+
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.filters button'));
+  var cards=[].slice.call(document.querySelectorAll('#grid .card'));
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=b.getAttribute('data-f');
+      btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+      cards.forEach(function(c){
+        var show=f==='todos'||c.getAttribute('data-cat').split(' ').indexOf(f)>-1;
+        c.hidden=!show;
+      });
+    });
+  });
+  var copy=document.getElementById('copy'),mail=document.getElementById('mail');
+  copy.addEventListener('click',function(){
+    function sel(){var r=document.createRange();r.selectNodeContents(mail);var s=getSelection();s.removeAllRanges();s.addRange(r);copy.textContent='Selecionado'}
+    try{navigator.clipboard.writeText(mail.textContent).then(function(){copy.textContent='Copiado'},sel)}catch(e){sel()}
+  });
+})();
+</script>
